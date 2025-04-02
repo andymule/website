@@ -1,0 +1,3 @@
+AuthType Basic
+AuthName "Authentication Required"
+require valid-user

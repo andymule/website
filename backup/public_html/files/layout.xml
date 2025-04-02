@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewer xmlns="http://www.issuu.com/viewer/1.0">
+
+<skin source="skins.swf"/>
+
+<box direction="horizontal" horizontalAlign="center" verticalAlign="middle" left="0" right="0">
+<image source="#Menu"/>
+</box>
+
+<box direction="horizontal" horizontalAlign="center" verticalAlign="middle" left="0" right="20">
+<button action="pagePrevious" upState="#PreviousButton_up" overState="#PreviousButton_over" downState="#PreviousButton_down" disabledState="#PreviousButton_disabled"/>
+<button action="pageNext" upState="#NextButton_up" overState="#NextButton_over" downState="#NextButton_down" disabledState="#NextButton_disabled"/>
+<button action="index" upState="#IndexButton_up" overState="#IndexButton_over" downState="#IndexButton_down" disabledState="#IndexButton_disabled"/>
+<image source="#Seperator"/>
+<button action="fullScreen" upState="#FullscreenButton_up" overState="#FullscreenButton_over" downState="#FullscreenButton_down" disabledState="#FullscreenButton_disabled"/>
+<button action="viewMode" upState="#ViewModeButton_up"/>
+<button action="share" upState="#ShareButton_up" overState="#ShareButton_over" downState="#ShareButton_down"/>
+<button action="search" upState="#SearchButton_up" overState="#SearchButton_over" downState="#SearchButton_down"/>
+<button action="print" upState="#PrintButton_up" overState="#PrintButton_over" downState="#PrintButton_down"/>
+<image source="#Seperator2"/>
+<pageNumber fontSize="11" color="#666666" fontFamily="Helvetica, Arial, Verdana" width="30"/>
+</box>
+
+<dropp left="8" right="8" top="50" bottom="80"/>
+<dock verticalAlign="bottom" left="10" right="10" bottom="10" height="100"/>
+
+</viewer>

@@ -1,0 +1,147 @@
+@font-face {
+    font-family: "lig";
+    src: url("OpenSans-Light.ttf");
+}
+
+@font-face {
+    font-family: "reg";
+    src: url("OpenSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "bol";
+    src: url("OpenSans-Semibold.ttf");
+}
+a {
+    color: purple;
+    text-decoration: none;
+  }
+  a:hover {
+    color: purple;
+    background-color: lightgrey;
+  }
+  a:link {
+    color: purple;
+  }
+  a:active {
+    color: purple;
+  }
+  a:visited {
+    color: purple;
+  }
+h1 {
+    font-family: lig;
+    font-size: 300%;
+    line-height: 130%;
+}
+
+h2 {
+    font-family: lig;
+    font-size: 100%;
+    line-height: 130%;
+}
+
+h3 {
+    font-family: bol;
+    font-size: 100%;
+    line-height: 130%;
+}
+strong{
+    font-family: bol;
+}     
+canvas {
+  margin: 0;
+  padding: 0;
+  touch-action: none;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -9999;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root{
+  --bg-color: #ffffff;
+}
+
+/* title styles */
+.home-title span{
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.home-title span::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #80008019;
+  animation: a-ltr-after 2s cubic-bezier(.77,0,.18,1) forwards;
+  transform: translateX(-101%);
+}
+
+.home-title span::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #80008038;
+  animation: a-ltr-before 1.3s cubic-bezier(.77,0,.18,1) forwards;
+  transform: translateX(0);
+}
+
+.home-title span:nth-of-type(1)::before,
+.home-title span:nth-of-type(1)::after{
+  animation-delay: 0s;
+}
+
+.home-title span:nth-of-type(2)::before,
+.home-title span:nth-of-type(2)::after{
+  animation-delay: .37s;
+}
+
+.home-title span:nth-of-type(3)::before,
+.home-title span:nth-of-type(3)::after{
+  animation-delay: 1s;
+}
+
+@keyframes a-ltr-after{
+  0% {transform: translateX(-100%)}
+  100% {transform: translateX(101%)}
+}
+
+@keyframes a-ltr-before{
+  0% {transform: translateX(0)}
+  100% {transform: translateX(100%)}
+}
+
+
+.vidz video,
+.vidz img {
+	height: auto;
+	max-height: 240px;
+	width: auto;
+}
+
+body {
+	opacity: 0; /* Make content fully transparent initially */
+    transition: opacity 1s ease-in-out; /* Smooth transition for the opacity change */
+
+	-webkit-font-smoothing: antialiased; /* for WebKit browsers */
+	-moz-osx-font-smoothing: grayscale; /* for Firefox on macOS */
+	text-rendering: optimizeLegibility; /* General approach to improve text rendering */
+  }
+  

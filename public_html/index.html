@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Andy Muehlhausen - Emerging Tech Experience Designer">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Three.js scripts -->
+  <script src="three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/postprocessing/EffectComposer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/postprocessing/RenderPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/postprocessing/UnrealBloomPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/shaders/CopyShader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/postprocessing/ShaderPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/shaders/LuminosityHighPassShader.js"></script>
+  
+  <meta name="google-site-verification" content="bKn2hLTLLXTef5EmDecqfov8dA-cdLnxiA0dUtdnDvo" />
+  <link rel="stylesheet" href="mystyle.css">
+  <title>Andy Muehlhausen - Experience Designer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  
+  <!-- Background scene script -->
+  <script src="js/background-scene.js"></script>
+</head>
+
+<body>
+  <!-- Three.js container -->
+  <div id="threejs-container" style="position: fixed; width: 100%; height: 100vh; top: 0; left: 0; z-index: -1;"></div>
+  
+  <main id="content" class="container">
+    <header>
+      <h1 class="home-title"><span>andy muehlhausen</span></h1>
+      
+      <nav aria-label="Main navigation">
+        <a href="https://www.linkedin.com/in/andymule">linkedin</a> - 
+        <a href="https://github.com/andymule">github</a> - 
+        <a href="resume_march_2025.pdf">pdf</a>
+      </nav>
+      
+      <div class="intro">
+        <p class="home-title">
+          <strong>Emerging Tech Experience Designer</strong><br>
+          <span>My mission is to build meaningful human-to-human interactions that push the boundaries of technology.</span><br>
+          <span>I design, lead, and implement immersive interactive experiences involving combinations of computers and physical interaction.</span>
+        </p>
+      </div>
+    </header>
+
+    <hr class="section-divider">
+
+    <section aria-labelledby="experience-section">
+      <h2 id="experience-section" class="visually-hidden">Professional Experience</h2>
+      
+      <div class="experience-item">
+        <strong>Apple, Vision Products Group</strong>
+        <i>AR Experience Prototyper, 2022 - Present</i>
+        <div class="experience-details">
+          <p>I design interactions for emergent products with full stack consideration.<br>
+          I serve as Experience DRI for successful interactions and work with EE, PD, and ID to ship.</p>
+        </div>
+      </div>
+      
+      <div class="experience-item">
+        <strong>Meta, Reality Labs Research</strong>
+        <i>Senior Audio Experience Prototyper, 2020 - 2022</i>
+        <div class="experience-details">
+          <ul class="custom-list">
+            <li><a href="https://about.fb.com/news/2020/09/facebook-reality-labs-research-future-of-audio/">Audio Presence and Superhuman Hearing Experience Research</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="experience-item">
+        <strong>Tobii Eye-Tracking</strong>
+        <i>Mixed Reality Eye-Tracked Interaction Designer, 2018 - 2020</i>
+        <div class="experience-details">
+          <ul class="custom-list">
+            <li><a href="https://vr.tobii.com/sdk/explore/">Tobii Interactions Showcase</a></li>
+            <li><a href="https://vr.tobii.com/sdk/develop/unity/tools/xr-dev-tools/">XR Eye Tracking Dev Tools</a></li>
+            <li><a href="https://vr.tobii.com/sdk/develop/unity/tools/gaze-modifier/">Gaze Modifier</a></li>
+            <li><a href="https://vr.tobii.com/sdk/learn/eye-behavior/visual-angles/">Explaining Visual Angles</a></li>
+            <li><a href="https://vr.tobii.com/sdk/learn/eye-behavior/hardware-accuracy/">Explaining Eye Tracking Accuracy</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="experience-item">
+        <strong>Microsoft</strong>
+        <i>Hardware Prototyper @ Incubation Labs, 2016 - 2018<br>
+        Audio Experience Prototyper @ HoloLens, 2014 - 2016</i>
+        <div class="experience-details">
+          <ul class="custom-list">
+            <li><a href="https://github.com/microsoft/MixedRealityToolkit/blob/master/Input/MicStreamSelector/Source/MicStreamSelector.cpp">HoloLens Beamforming Capture Library</a></li>
+            <li><a href="https://github.com/reneschulte/HoloToolkit-Unity/blob/master/Assets/HoloToolkit/Input/Scripts/Microphone/MicStream.cs">Unity Hooks for HoloLens Beamforming Library</a></li>
+            <li><a href="https://docs.unity3d.com/Manual/VRAudioSpatializer.html">Unity Audio Spatializer Platform</a></li>
+            <li><a href="https://www.audiokinetic.com/library/2017.2.10_6745/?source=Help&id=ms_hrtf_plug_in">Wwise MS HRTF Plugin</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="experience-item">
+        <strong>Qualcomm Institute - UCSD Division of Calit2</strong>
+        <i>Research Assistant, 2012 - 2014</i>
+        <div class="experience-details">
+          <ul class="custom-list">
+            <li><a href="https://www.youtube.com/watch?v=8bS0Borb-f8">MUGIC, Multi-User Graphics with Interactive Control</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="patents-section">
+      <h2 id="patents-section" class="visually-hidden">Patents</h2>
+      
+      <div class="experience-item">
+        <strong>U.S. Patents</strong>
+        <div class="experience-details">
+          <ul class="custom-list">
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11614798">Eye Tracking (through ear canal deformation)</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20220256304">Environmental Condition Based Spatial Audio Presentation</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10630965">Calibrating a near-eye display</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10674305">Remote multi-dimensional audio</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10694311">Synchronized spatial audio presentation</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10740389">Remembering audio traces of physical actions</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10481856">Volume adjustment on hinged multi-screen device</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10437336">Haptics to identify button regions</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10317505">Composite sound output for network connected devices</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10311543">Virtual object movement</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10249095">Context-based discovery of applications</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10186086">Augmented reality control of computing device</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9865091">Localizing devices in augmented reality environment</a></li>
+            <li><a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9558760">Real-time remodeling of user voice</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <section aria-labelledby="education-section">
+      <h2 id="education-section" class="visually-hidden">Education</h2>
+      
+      <div class="experience-item">
+        <strong>Education</strong>
+        <div class="experience-details">
+          <ul class="custom-list">
+            <li>University of California, San Diego (MFA), Theatre (Sound Design) &middot; (2011 - 2014)</li>
+            <li>Purdue University (BS), Computer Science; Minors: Theatre, Physics &middot; (2006 - 2010)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section aria-labelledby="projects-section">
+      <h2 id="projects-section" class="visually-hidden">Personal Projects</h2>
+      
+      <div class="experience-item">
+        <strong>Personal Projects</strong>
+        <div class="experience-details">
+          <ul class="custom-list">
+            <li><a href="https://github.com/andymule/nogBasic23">Apple IIe bootable disk for invitation to eggnog party, 2023</a></li>
+            <li><a href="https://github.com/andymule/flix-space">SwiftPackageManager-only video game to learn swift, 2022</a></li>
+            <li><a href="https://drive.google.com/drive/folders/1K0drdsZsYUe4FNBmSy0WJmSxi_JVF2IA">AR Music Interaction weekend project, 2022</a></li>
+            <li><a href="https://github.com/andymule/ESP32DuplexAudioStream">Realtime full duplex wireless comms on ESP32, 2021</a></li>
+            <li><a href="https://www.facebook.com/events/476285726627950/">Fourth Place of 30 teams, LeetHack Stockholm coding competition, 2020</a></li>
+            <li><a href="https://github.com/andymule/FingerballU">FingerLeague: phone LAN sport, 2019</a></li>
+            <li><a href="https://oshpark.com/profiles/andymule">Tiny Wifi Arduino w/ power, usb, serial, 2018</a></li>
+            <li><a href="https://github.com/andymule/EPD32">Ultra Low-Power E-paper Weather Module, 2018</a></li>
+            <li>Sketch-and-Say AI-Assist Drawing, 2017</li>
+            <li>Waveform Synthesis RGB LED controller, 2017</li>
+            <li>Haptic Vision-Remapping Gauntlet, 2016</li>
+            <li><a href="https://vimeo.com/334830560">kringla heimsins; collab w/ Joshua Tonies, 2014</a></li>
+            <li>HTML5 live-synched audio reactive visualizers, 2014</li>
+            <li>Sound-Augmented Ping Pong, 2014</li>
+            <li>55 Player Theatre Video Game, 2014</li>
+            <li>13' DIY Touchscreen/Projection-Tent Game, 2014</li>
+            <li>So much music, whole life</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section aria-labelledby="project-videos">
+      <h2 id="project-videos">Personal Project Videos</h2>
+      <div class="vidz">
+        <video src="newvids/nog2-converted.mp4" type="video/mp4" loading="lazy"></video>
+        <video src="newvids/aicandraw-converted.mp4" type="video/mp4" loading="lazy"></video>
+        <video src="newvids/ai3.mp4" type="video/mp4" loading="lazy"></video>
+        <video src="newvids/hallow-converted.mp4" type="video/mp4" loading="lazy"></video>
+        <video src="newvids/yerba.mp4" type="video/mp4" loading="lazy"></video>
+        <video src="newvids/ramainstallation-converted.mp4" type="video/mp4" loading="lazy"></video>
+        <video src="newvids/ballslines22-converted.mp4" type="video/mp4" loading="lazy"></video>
+        <video src="newvids/gnoPong-converted.mp4" type="video/mp4" loading="lazy"></video>
+        <video src="newvids/demo-converted.mp4" type="video/mp4" loading="lazy"></video>
+        <video src="newvids/bingobongo.mp4" type="video/mp4" loading="lazy"></video>
+        <video src="newvids/html5phones-converted.mp4" type="video/mp4" loading="lazy"></video>
+        <img src="FL.gif" alt="Animated GIF" loading="lazy"> 
+        <img src="newvids/resight.png" alt="Resight Visualization" loading="lazy">
+        <img src="newvids/weather2.png" alt="Weather Data Visualization" loading="lazy">
+      </div>
+    </section>
+
+    <footer class="footer">
+      <nav aria-label="Footer links">
+        <a href="https://www.linkedin.com/in/andymule">linkedin</a> - 
+        <a href="https://github.com/andymule">github</a> - 
+        <a href="resume2.pdf">pdf</a>
+      </nav>
+    </footer>
+  </main>
+
+  <script>
+    // Rainbow link color animation and content fade-in
+    document.addEventListener("DOMContentLoaded", function() {
+      // Content fade-in
+      const contentDiv = document.getElementById('content');
+      contentDiv.style.transition = 'none';
+      contentDiv.style.opacity = '0';
+      
+      setTimeout(function() {
+        contentDiv.style.transition = 'opacity 3s ease-in-out';
+        contentDiv.style.opacity = '1';
+      }, 1000);
+      
+      // Initialize link color animation
+      requestAnimationFrame(updateLinkColors);
+      
+      // Configure videos
+      const videos = document.querySelectorAll('.vidz video');
+      videos.forEach(function(video) {
+        video.setAttribute('playsinline', 'true');
+        video.setAttribute('controls', 'true');
+        video.setAttribute('muted', 'true');
+        video.muted = true;
+        video.setAttribute('autoplay', 'true');
+        video.setAttribute('loop', 'true');
+        
+        video.addEventListener('loadedmetadata', function() {
+          video.currentTime = video.duration / 4;
+          video.play().catch(function(error) {
+            console.error("Video playback failed: ", error);
+          });
+        });
+      });
+    });
+
+    // Rainbow link colors function
+    function updateLinkColors() { 
+      const links = document.querySelectorAll('a');
+      const windowHeight = window.innerHeight;
+      const currentTime = Date.now();
+
+      links.forEach(link => {
+        const linkRect = link.getBoundingClientRect();
+        const linkY = linkRect.top;
+        const normalizedPosition = Math.min(Math.max(linkY, 0), windowHeight);
+        const fraction = normalizedPosition / windowHeight;
+        
+        const speedFactor = 0.06;
+        const hue = (currentTime * speedFactor + fraction * 360) % 360;
+        const saturation = 55;
+        const lightness = 65;
+
+        link.style.color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+      });
+
+      requestAnimationFrame(updateLinkColors);
+    }
+  </script>
+  
+  <style>
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+</body>
+</html>

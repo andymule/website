@@ -1,0 +1,1 @@
+start http://localhost:12345/index.html && python3 -m http.server 12345 
