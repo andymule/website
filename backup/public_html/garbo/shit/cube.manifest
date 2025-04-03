@@ -1,8 +1,0 @@
-CACHE MANIFEST
-#This is a comment
-
-CACHE
-cube.html
-build/Three.js
-js/RequestAnimationFrame.js
-js/Stats.js

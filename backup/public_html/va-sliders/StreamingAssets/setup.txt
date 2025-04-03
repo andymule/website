@@ -1,5 +1,0 @@
-video:hope.mp4
-snapshots:3,None,ASP Shotgun,ASP Beamform
-Binaural:kemar_ears.mp3,1,1,1
-Beam:fixedBF.mp3,0,0,1
-Shotgun:shotgun_stereo.mp3,0,1,0

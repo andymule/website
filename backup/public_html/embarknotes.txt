@@ -1,6 +1,0 @@
--- talk about my AI can draw project
--- talk about audio/haptic synthesis
--- talk about AI point-n-click game
--- 
-
-questions/notes

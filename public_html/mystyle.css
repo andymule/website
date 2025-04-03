@@ -160,6 +160,13 @@ a:hover, a:focus {
   transform: translateX(3px);
 }
 
+/* Touch Device Hover Fix */
+@media (hover: none) {
+  .custom-list li:hover {
+    transform: none;
+  }
+}
+
 /* Video and Image Grid */
 .vidz {
   display: grid;
