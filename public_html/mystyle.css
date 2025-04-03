@@ -41,6 +41,7 @@ body {
   margin: 0;
   padding: 0;
   padding-left: 30px;
+  padding-right: 30px;
   width: 100%;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -285,6 +286,7 @@ a:hover, a:focus {
   
   body {
     padding-left: 15px;
+    padding-right: 15px;
   }
   
   .section-divider {
