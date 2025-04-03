@@ -33,6 +33,32 @@ var customShaderMaterial = new THREE.ShaderMaterial({
     float rand(vec2 co) {
       return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
     }
+    
+    // Ordered dithering function for retro effect - using if statements instead of arrays
+    float orderedDither(vec2 pos) {
+      // 4x4 Bayer matrix pattern through manual mapping
+      int x = int(mod(pos.x, 4.0));
+      int y = int(mod(pos.y, 4.0));
+      int index = y * 4 + x;
+      
+      // Map index to Bayer pattern value manually
+      if (index == 0) return 0.0/16.0;
+      if (index == 1) return 8.0/16.0;
+      if (index == 2) return 2.0/16.0;
+      if (index == 3) return 10.0/16.0;
+      if (index == 4) return 12.0/16.0;
+      if (index == 5) return 4.0/16.0;
+      if (index == 6) return 14.0/16.0;
+      if (index == 7) return 6.0/16.0;
+      if (index == 8) return 3.0/16.0;
+      if (index == 9) return 11.0/16.0;
+      if (index == 10) return 1.0/16.0;
+      if (index == 11) return 9.0/16.0;
+      if (index == 12) return 15.0/16.0;
+      if (index == 13) return 7.0/16.0;
+      if (index == 14) return 13.0/16.0;
+      return 5.0/16.0; // index == 15
+    }
 
     void main() {
       // Normal material contribution
@@ -48,8 +74,11 @@ var customShaderMaterial = new THREE.ShaderMaterial({
 
       // Blend the two contributions
       vec3 finalColor = mix(normalColor, phongColor, 0.6);
-      float dither = rand(gl_FragCoord.xy) * (1.0 / 255.0);
-      finalColor.rgb += dither;
+      
+      // Mix of random and ordered dithering for retro feel
+      float dither = mix(rand(gl_FragCoord.xy), orderedDither(gl_FragCoord.xy), 0.7) * (2.5 / 255.0);
+      finalColor.rgb += dither - (1.0/255.0);
+      
       gl_FragColor = vec4(finalColor, 1.0);
     }
   `,
@@ -66,11 +95,44 @@ function setupPostProcessing() {
     0.4, // radius
     0.85 // threshold
   );
+  
   bloomPass.renderToScreen = true;
 
   composer = new THREE.EffectComposer(renderer);
   composer.addPass(renderScene);
   composer.addPass(bloomPass);
+  
+  // Add film grain directly to the canvas via CSS
+  var container = document.getElementById('threejs-container');
+  
+  // Create an overlay for film grain
+  var grainOverlay = document.createElement('div');
+  grainOverlay.id = 'grain-overlay';
+  grainOverlay.style.position = 'fixed';
+  grainOverlay.style.top = '0';
+  grainOverlay.style.left = '0';
+  grainOverlay.style.width = '100%';
+  grainOverlay.style.height = '100vh';
+  grainOverlay.style.pointerEvents = 'none'; // Allow clicking through
+  grainOverlay.style.zIndex = '-1'; // Place in background with Three.js scene
+  grainOverlay.style.opacity = '0.01'; // Subtle grain
+  
+  // Add grain CSS
+  var style = document.createElement('style');
+  style.innerHTML = `
+    #grain-overlay {
+      background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+      animation: noise 0.5s infinite;
+    }
+    @keyframes noise {
+      0% { background-position: 0 0; }
+      100% { background-position: 100% 100%; }
+    }
+  `;
+  document.head.appendChild(style);
+  
+  // Add to document body instead of Three.js container
+  document.body.appendChild(grainOverlay);
 }
 
 // Handle mouse and touch input
@@ -169,18 +231,53 @@ function setupScene() {
   mesh.position.set(0, 0, -5);
   scene.add(mesh);
 
-  // Set background to a gradient
+  // Set background to a gradient with retro dithering
   var canvas = document.createElement('canvas');
-  canvas.width = 1;
+  canvas.width = 256; // Increased size for more visible pattern
   canvas.height = 1024;
   var context = canvas.getContext('2d');
+  
+  // Create gradient
   var gradient = context.createLinearGradient(0, 0, 0, 1024);
   gradient.addColorStop(0, '#101010');
   gradient.addColorStop(0.5, '#202040');
   gradient.addColorStop(1, '#101010');
   context.fillStyle = gradient;
-  context.fillRect(0, 0, 1, 1024);
+  context.fillRect(0, 0, 256, 1024);
+  
+  // Apply retro-style ordered dithering
+  var imageData = context.getImageData(0, 0, 256, 1024);
+  var data = imageData.data;
+  
+  // Bayer matrix 4x4 pattern for ordered dithering
+  var bayerMatrix = [
+    0, 8, 2, 10,
+    12, 4, 14, 6,
+    3, 11, 1, 9,
+    15, 7, 13, 5
+  ];
+  
+  for (var y = 0; y < 1024; y++) {
+    for (var x = 0; x < 256; x++) {
+      var index = (y * 256 + x) * 4;
+      
+      // Get Bayer pattern value at this position
+      var bayerValue = bayerMatrix[(y % 4) * 4 + (x % 4)];
+      
+      // Apply a subtle dithering effect based on the Bayer pattern
+      var ditherAmount = (bayerValue / 16.0 - 0.5) * 6; // Subtle adjustment
+      
+      data[index] = Math.max(0, Math.min(255, data[index] + ditherAmount));     // R
+      data[index+1] = Math.max(0, Math.min(255, data[index+1] + ditherAmount)); // G
+      data[index+2] = Math.max(0, Math.min(255, data[index+2] + ditherAmount)); // B
+    }
+  }
+  
+  context.putImageData(imageData, 0, 0);
+  
   var backgroundTexture = new THREE.CanvasTexture(canvas);
+  backgroundTexture.minFilter = THREE.LinearFilter;
+  backgroundTexture.magFilter = THREE.LinearFilter;
   scene.background = backgroundTexture;
 
   mouseLight = new THREE.PointLight(0xffffff, 1, 100);
