@@ -101,38 +101,6 @@ function setupPostProcessing() {
   composer = new THREE.EffectComposer(renderer);
   composer.addPass(renderScene);
   composer.addPass(bloomPass);
-  
-  // Add film grain directly to the canvas via CSS
-  var container = document.getElementById('threejs-container');
-  
-  // Create an overlay for film grain
-  var grainOverlay = document.createElement('div');
-  grainOverlay.id = 'grain-overlay';
-  grainOverlay.style.position = 'fixed';
-  grainOverlay.style.top = '0';
-  grainOverlay.style.left = '0';
-  grainOverlay.style.width = '100%';
-  grainOverlay.style.height = '100vh';
-  grainOverlay.style.pointerEvents = 'none'; // Allow clicking through
-  grainOverlay.style.zIndex = '-1'; // Place in background with Three.js scene
-  grainOverlay.style.opacity = '0.01'; // Subtle grain
-  
-  // Add grain CSS
-  var style = document.createElement('style');
-  style.innerHTML = `
-    #grain-overlay {
-      background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
-      animation: noise 0.5s infinite;
-    }
-    @keyframes noise {
-      0% { background-position: 0 0; }
-      100% { background-position: 100% 100%; }
-    }
-  `;
-  document.head.appendChild(style);
-  
-  // Add to document body instead of Three.js container
-  document.body.appendChild(grainOverlay);
 }
 
 // Handle mouse and touch input
